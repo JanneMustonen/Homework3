@@ -24,7 +24,21 @@ _sudo apt-get -y install typora_
 
 **git diff** näyttää tiedostojen sisällä tehdyt muutokset.
 
-**git blame** 
+**git blame** näyttää kuka on tehnyt muutoksen/kirjoittanu tiedostoon tekstiä. Blame komento näyttää myös kellonajat milloin tiedostoon on tehty muutoksia/kirjoitettu
+
+***
+
+**e)**
+
+Kirjoitin tiedostooni turhaa tekstiä, mutta en committanu tiedostoa, mutta pushasin sen githubiin ja tallenuksen jälkeen käytin **git reset --hard** komentoa ja se poisti turhat muutokset, jotka olin tehnyt ja se haki automaattisesti ennen muutoksia tehdyn version.
+
+***
+
+**f)**
+
+
+
+
 
 
 
