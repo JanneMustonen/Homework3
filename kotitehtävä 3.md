@@ -2,7 +2,9 @@
 
 **Tämä on teron kurssin kolmas kotitehtävä, joka toteutetaan gitillä ja lisätään sen jälkeen lisätään githubiin.**
 
-a) Latasin typora markdown editorin linuxille, koska nano ei tue Markdown komentoja, joten päätin ladata uuden editorin.
+**a) **
+
+Latasin typora markdown editorin linuxille, koska nano ei tue Markdown komentoja, joten päätin ladata uuden editorin.
 
  _wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -_
 
