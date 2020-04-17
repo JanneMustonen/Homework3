@@ -2,7 +2,7 @@
 
 **Tämä on teron kurssin kolmas kotitehtävä, joka toteutetaan gitillä ja lisätään sen jälkeen lisätään githubiin.**
 
-**a) **
+**a)**
 
 Latasin typora markdown editorin linuxille, koska nano ei tue Markdown komentoja, joten päätin ladata uuden editorin.
 
