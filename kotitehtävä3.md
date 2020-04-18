@@ -36,6 +36,67 @@ Kirjoitin tiedostooni turhaa tekstiä, mutta en committanu tiedostoa, mutta push
 
 **f)**
 
+Tässä tehtävässä aion asentaa fail2ban ohjelman, ja fail2ban ohjelmalla pystytään suojaamaan palvelinta tietystä IP-osoitteeata tulevaa hyökkäystä vastaan.
+
+_Sudo apt-get -y install fail2ban_
+
+Kopioin tiedoston **jail.conf** -> **jail.local** tiedostoksi. **Jail.local** tiedosto sisältää kaikki asetukset, mutta tämän tiedoston päälle saatetaan kirjoittaa päivitysten yhteydessä. Fail2ban lukee asetukset **jail.local** tiedostosta, jolloin **jail.conf** jää koskemattomaksi.
+
+Kävin vaihtamassa asetuksia jail.local tiedostosta ja bannasin IP-osoitteen 10 minuutiksi 1 tunnin sijaan. Tämän jälkeen käynnistin ohjelman uudelleen.
+
+_sudo systemctl restart fail2ban_
+
+**Saltin automatisointi**
+
+luodaan uusi directory **/srv/salt** kansioon eli **/srv/salt/fail2ban**
+
+_sudo mkdir /srv/salt/fail2ban_
+
+ja kopioidaan **/etc/fail2ban/jail.local** tiedosto **/srv/salt/fail2ban** kansioon
+
+_sudo cp /etc/fail2ban/jail.local /srv/salt/fail2ban_
+
+tämän jälkeen loin vielä sls tiedoston
+
+_sudoedit /srv/salt/fail2ban.sls_
+
+sls tiedostoon kirjoitettin
+
+fail2ban:
+  pkg.installed
+
+/etc/fail2ban/jail.local:
+  file.managed:
+    -source: salt://fail2ban/jail.local
+
+fail2banservice:
+  service.running:
+    -name: fail2ban
+
+tämän jälkeen ajoin ohjelman 
+
+_sudo salt '*' state.apply fail2ban_
+
+Minulla kuitenkin ilmeni ongelmia kohdassa file.managed ja sain korjattua kohdan kopioimalla fail2ban.sls tiedoston kansiosta /srv/salt/fail2ban kansioon /srv/salt ja sain tämän toimimaan oikein.
+
+
+
+Tehtävässä meni noin 3h
+
+***
+
+**Lähteet**
+
+www.TeroKarvinen.com
+
+www.hannukankkunen.wordpress.com/2018/12/10/palvelinten-hallinta-h3/
+
+
+
+
+
+ 
+
 
 
 
